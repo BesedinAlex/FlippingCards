@@ -12,6 +12,8 @@
 		FA68ED2222072177001ADD6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA68ED2022072177001ADD6C /* Main.storyboard */; };
 		FA68ED2422072177001ADD6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA68ED2322072177001ADD6C /* Assets.xcassets */; };
 		FA68ED2722072177001ADD6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA68ED2522072177001ADD6C /* LaunchScreen.storyboard */; };
+		FADA03FD22075BC300087380 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA03FC22075BC300087380 /* Card.swift */; };
+		FADA03FF22075BD400087380 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADA03FE22075BD400087380 /* Concentration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		FA68ED2322072177001ADD6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA68ED2622072177001ADD6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA68ED2822072177001ADD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADA03FC22075BC300087380 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		FADA03FE22075BD400087380 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				FA68ED2322072177001ADD6C /* Assets.xcassets */,
 				FA68ED2522072177001ADD6C /* LaunchScreen.storyboard */,
 				FA68ED2822072177001ADD6C /* Info.plist */,
+				FADA03FC22075BC300087380 /* Card.swift */,
+				FADA03FE22075BD400087380 /* Concentration.swift */,
 			);
 			path = FlippingCards;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA68ED1F22072177001ADD6C /* ViewController.swift in Sources */,
+				FADA03FF22075BD400087380 /* Concentration.swift in Sources */,
+				FADA03FD22075BC300087380 /* Card.swift in Sources */,
 				FA68ED1D22072177001ADD6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
