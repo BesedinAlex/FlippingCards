@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FlippingCards.xcodeproj">
+      location = "self:/Users/alex/Projects/FlippingCards/Concentration.xcodeproj">
    </FileRef>
 </Workspace>
