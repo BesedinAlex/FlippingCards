@@ -9,10 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var flipsCount = 0 {
+        didSet {
+            flipsCountTitle.text = "Flips: \(flipsCount)"
+        }
+    }
     var emojis = ["😛", "😡", "🥶", "🤢", "😈", "🤡", "☠️", "💩"]
     var emoji = [Int:String]() // Dictionary
     @IBOutlet var cards: [UIButton]!
+    @IBOutlet weak var flipsCountTitle: UILabel!
     lazy var game = Concentration(numberOfPairsOfCards: cards.count / 2)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, emojis.count > 0 {
             let randomIndex = Int(arc4random_uniform(UInt32(emojis.count)))
@@ -34,13 +43,8 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func touchCard(_ sender: UIButton) {
+        flipsCount += 1
         game.chooseCard(at: cards.index(of: sender)!)
-        updateViewFromModel()
-    }
-    @IBAction func startAllOver(_ sender: UIButton) {
-        game = Concentration(numberOfPairsOfCards: cards.count / 2)
-        emoji.removeAll()
-        emojis = ["😛", "😡", "🥶", "🤢", "😈", "🤡", "☠️", "💩"]
         updateViewFromModel()
     }
 }
