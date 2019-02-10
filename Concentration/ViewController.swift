@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  FlippingCards
-//
-//  Created by Alexey Besedin on 03/02/2019.
-//  Copyright © 2019 AlexConver. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,15 +5,25 @@ class ViewController: UIViewController {
     var numberOfPairsOfCards: Int {
         return cards.count / 2
     }
-    @IBOutlet private var cards: [UIButton]!
-    @IBOutlet private weak var flipsCountTitle: UILabel!
-    private var emojis = ["😛", "😡", "🥶", "🤢", "😈", "🤡", "☠️", "💩"]
-    private var emoji = [Int:String]() // Dictionary
-    private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojis.count > 0 {
-            emoji[card.identifier] = emojis.remove(at: emojis.count.arc4random)
+    private(set) var flipsCount = 0 {
+        didSet {
+            updateFlipCountTitle()
         }
-        return emoji[card.identifier] ?? "?" // ? returns if nil
+    }
+    @IBOutlet private var cards: [UIButton]!
+    @IBOutlet private weak var flipsCountTitle: UILabel! {
+        didSet {
+            updateFlipCountTitle()
+        }
+    }
+    private var emojis = "😛😡🥶🤢😈🤡☠️💩🎃🤖"
+    private var emoji = [Card:String]() // Dictionary
+    private func emoji(for card: Card) -> String {
+        if emoji[card] == nil, emojis.count > 0 {
+            let randomStringIndex = emojis.index(emojis.startIndex, offsetBy: emojis.count.arc4random)
+            emoji[card] = String(emojis.remove(at: randomStringIndex))
+        }
+        return emoji[card] ?? "?" // ? returns if nil
     }
     @IBAction private func touchCard(_ sender: UIButton) {
         flipsCount += 1
@@ -41,10 +43,13 @@ class ViewController: UIViewController {
             }
         }
     }
-    private(set) var flipsCount = 0 {
-        didSet {
-            flipsCountTitle.text = "Flips: \(flipsCount)"
-        }
+    private func updateFlipCountTitle() {
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth: 5.0,
+            .strokeColor: #colorLiteral(red: 0.9372549057, green: 0.4295617113, blue: 0, alpha: 1)
+        ]
+        let attributedString = NSAttributedString(string: "Flips: \(flipsCount)", attributes: attributes)
+        flipsCountTitle.attributedText = attributedString
     }
 }
 

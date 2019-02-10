@@ -1,17 +1,12 @@
-//
-//  Card.swift
-//  FlippingCards
-//
-//  Created by Alexey Besedin on 03/02/2019.
-//  Copyright © 2019 AlexConver. All rights reserved.
-//
-
 import Foundation
 
-struct Card {
+struct Card: Hashable {
+    var hashValue: Int {
+        return identifier
+    }
     var isFaceUp = false
     var isMatched = false
-    var identifier: Int
+    private var identifier: Int
     init() {
         identifier = Card.getUniqueIdentifier()
     }
@@ -19,5 +14,8 @@ struct Card {
     private static func getUniqueIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory
+    }
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
 }

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  FlippingCards
-//
-//  Created by Alexey Besedin on 03/02/2019.
-//  Copyright © 2019 AlexConver. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
